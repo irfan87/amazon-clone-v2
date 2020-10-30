@@ -23,7 +23,9 @@ const reducer = (state, action) => {
 			if (findBasketID >= 0) {
 				newBasket.splice(findBasketID, 1);
 			} else {
-				console.warn(`Can not remove basket #${action.id}`);
+				console.warn(
+					`Can not remove the item #${action.id} because it is not in your basket`
+				);
 			}
 
 			return {
