@@ -7,6 +7,7 @@ import Checkout from "./components/Checkout/Checkout";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Page404 from "./components/Page404/Page404";
+import Payment from "./components/Payment/Payment";
 import Login from "./components/UserManagement/Login/Login";
 import { useStateValue } from "./context/StateProvider";
 import { auth } from "./firebaseConfig";
@@ -46,6 +47,10 @@ function App() {
 					</Route>
 					<Route path="/login">
 						<Login />
+					</Route>
+					<Route path="/payment">
+						<Header />
+						<Payment />
 					</Route>
 					<Route path="*" component={Page404} />
 				</Switch>
