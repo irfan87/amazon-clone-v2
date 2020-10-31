@@ -1,11 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useStateValue } from "../../context/StateProvider";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 import Subtotal from "../Subtotal/Subtotal";
 import "./Checkout.css";
 
 const Checkout = () => {
-	const [{ basket }] = useStateValue();
+	const history = useHistory();
+
+	const [{ basket, user }] = useStateValue();
 
 	return (
 		<div className="checkout">
@@ -25,6 +28,8 @@ const Checkout = () => {
 					</div>
 				) : (
 					<div>
+						{!user ? history.push("/login") : <h3>Hi, {user.email}</h3>}
+
 						<h2 className="checkout__title">Your shopping basket</h2>
 						{basket?.map((item) => (
 							<CheckoutProduct
